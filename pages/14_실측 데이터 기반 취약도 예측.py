@@ -750,11 +750,13 @@ with st.expander("📊 Pico W 일별 통계 보기", expanded=False):
 st.markdown("---")
 st.subheader("② 실측 + 공공데이터 결합")
 
+# 오늘 기준 전일
+yesterday = date.today() - timedelta(days=1)
+
 target_date = st.date_input(
     "예측 기준일",
-    value=latest_sensor_date,
-    min_value=earliest_sensor_date,
-    max_value=latest_sensor_date,
+    value=yesterday,
+    max_value=yesterday,
 )
 
 st.caption(
